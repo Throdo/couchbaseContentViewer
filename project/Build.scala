@@ -1,3 +1,5 @@
+import sbt._
+import play.Project._
 
 object ApplicationBuild extends Build {
 
@@ -9,8 +11,8 @@ object ApplicationBuild extends Build {
     javaCore,
     javaJdbc,
     javaEbean,
-    "junit" % "junit" % "4.11",
-    "com.google.code.gson" % "gson" % "2.2.3"
+    "play" %% "play-test" % play.core.PlayVersion.current % "test" exclude("com.novocode", "junit-interface"),
+    "com.novocode" % "junit-interface" % "0.9" % "test"
   )
 
   val main = play.Project(appName, appVersion, appDependencies)

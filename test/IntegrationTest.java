@@ -15,8 +15,8 @@ public class IntegrationTest {
     public void test() {
         running(testServer(3333, fakeApplication(inMemoryDatabase())), HTMLUNIT, new Callback<TestBrowser>() {
             public void invoke(TestBrowser browser) {
-                browser.goTo("http://localhost:3333");
-                assertThat(browser.pageSource()).contains("Your new application is ready.");
+                browser.goTo("http://localhost:3333/contextViewer");
+                assertThat(browser.pageSource()).contains("ContextViewer application is under development with 2 OrangeCluster(s) !!!");
             }
         });
     }

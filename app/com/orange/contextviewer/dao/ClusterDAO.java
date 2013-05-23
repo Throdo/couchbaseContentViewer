@@ -1,17 +1,29 @@
-package com.orange.contextviewer;
+package com.orange.contextviewer.dao;
+
+import play.Logger;
 
 /**
  * Created with IntelliJ IDEA.
  * User: throdo
- * Date: 19/05/13
- * Time: 10:33
+ * Date: 21/05/13
+ * Time: 15:00
  */
-public class Cluster {
+public class ClusterDAO {
     private String id;
     private String label;
     private String uri;
     private String loginAdm;
     private String passwdAdm;
+
+    public ClusterDAO(String id, String label, String loginAdm, String passwdAdm, String uri) {
+        Logger.debug("Entreé dans le constructeur : ClusterDAO(String id, String label, String loginAdm, String passwdAdm, String uri)");
+        this.id = id;
+        this.label = label;
+        this.loginAdm = loginAdm;
+        this.passwdAdm = passwdAdm;
+        this.uri = uri;
+        Logger.debug("Sortie du constructeur ClusterDAO(String id, String label, String loginAdm, String passwdAdm, String uri) avec comme propriétés : " + this.toString());
+    }
 
     public String getId() {
         return id;
@@ -27,14 +39,6 @@ public class Cluster {
 
     public void setLabel(String label) {
         this.label = label;
-    }
-
-    public String getUri() {
-        return uri;
-    }
-
-    public void setUri(String uri) {
-        this.uri = uri;
     }
 
     public String getLoginAdm() {
@@ -53,26 +57,26 @@ public class Cluster {
         this.passwdAdm = passwdAdm;
     }
 
-    public Cluster(String id, String label, String uri, String loginAdm, String passwdAdm) {
-        this.id = id;
-        this.label = label;
+    public String getUri() {
+        return uri;
+    }
+
+    public void setUri(String uri) {
         this.uri = uri;
-        this.loginAdm = loginAdm;
-        this.passwdAdm = passwdAdm;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Cluster)) return false;
+        if (!(o instanceof ClusterDAO)) return false;
 
-        Cluster cluster = (Cluster) o;
+        ClusterDAO that = (ClusterDAO) o;
 
-        if (!id.equals(cluster.id)) return false;
-        if (!loginAdm.equals(cluster.loginAdm)) return false;
-        if (!label.equals(cluster.label)) return false;
-        if (!passwdAdm.equals(cluster.passwdAdm)) return false;
-        if (!uri.equals(cluster.uri)) return false;
+        if (!id.equals(that.id)) return false;
+        if (!label.equals(that.label)) return false;
+        if (!loginAdm.equals(that.loginAdm)) return false;
+        if (!passwdAdm.equals(that.passwdAdm)) return false;
+        if (!uri.equals(that.uri)) return false;
 
         return true;
     }
@@ -89,7 +93,7 @@ public class Cluster {
 
     @Override
     public String toString() {
-        return "Cluster{" +
+        return "ClusterDAO{" +
                 "id='" + id + '\'' +
                 ", label='" + label + '\'' +
                 ", uri='" + uri + '\'' +
