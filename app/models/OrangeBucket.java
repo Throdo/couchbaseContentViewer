@@ -2,6 +2,9 @@ package models;
 
 import com.couchbase.client.CouchbaseClient;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created with IntelliJ IDEA.
  * User: throdo
@@ -12,6 +15,8 @@ public class OrangeBucket {
     private String id;
     private String label;
     private CouchbaseClient couchbaseClient;
+    private Map<String, OrangeDocument> orangeDocuments;
+    private List<BucketView> bucketViews;
 
     public OrangeBucket(String id, String label, CouchbaseClient couchbaseClient) {
         this.id = id;
